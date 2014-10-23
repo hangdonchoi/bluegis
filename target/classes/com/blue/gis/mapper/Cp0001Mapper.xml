@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.blue.gis.mapper.Cp0001Mapper">
+ 
+ <select id="getBaseList" resultType="com.blue.gis.vo.Cp0001VO">
+	 <![CDATA[
+	 	SELECT 
+			*
+		FROM cp0001
+		WHERE CMY_MNGT_NO=#{cmyMngtNo}
+		LIMIT #{page},#{pageCnt}
+	]]>
+ </select>
+ <select id="insCompData" parameterType="com.blue.gis.vo.Cp0001VO">
+	 <![CDATA[
+	 	INSERT INTO blue.cp0001(
+		   CMY_MNGT_NO
+		  ,CMY_NM
+		  ,BTPY_NO
+		  ,ADR_FRT_NO
+		  ,ADR_BCK_NO
+		  ,BSC_ADR
+		  ,DTL_ADR
+		  ,XCDN
+		  ,YCDN
+		  ,MIN_INTR_CN
+		  ,DTL_INTR_CN
+		  ,CMY_LCN_PHGP_RUT
+		  ,CMY_CNTP_01
+		  ,CMY_CNTP_02
+		  ,EML_ADR
+		  ,FAX_NO
+		) VALUES (
+		 #{cmyMngtNo     }
+		,#{cmyNm         }
+		,#{btpyNo        }
+		,#{adrFrtNo      }
+		,#{adrBckNo      }
+		,#{bscAdr        }
+		,#{dtlAdr        }
+		,#{xcdn          }
+		,#{ycdn          }
+		,#{minIntrCn     }
+		,#{dtlIntrCn     }
+		,#{cmyLcnPhgpRut }
+		,#{cmyCntp01     }
+		,#{cmyCntp02     }
+		,#{emlAdr        }
+		,#{faxNo					}
+		)
+	]]>
+ </select>
+ <select id="updBoard" parameterType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 	UPDATE cs0002
+		SET
+		   COMP_CD = #{compCd} -- varchar(20)
+		  ,PROD_CD = #{prodCd} -- varchar(20)
+		  ,VLD_EDDT = #{vldEddt} -- varchar(20)
+		  ,VLD_STDT = #{vldStdt} -- varchar(11)
+		  ,PROD_NM = #{prodNm} -- varchar(11)
+		  ,PRICE = #{price} -- int(20)
+		  ,SALE_AFT_PRICE = #{saleAftPrice} -- int(20)
+		  ,SALE_YN = #{saleYn} -- varchar(20)
+		  ,DEL_YN = #{delYn} -- varchar(20)
+		  ,INS_CD = '111' -- varchar(20)
+		WHERE COMP_CD = #{compCd} -- varchar(20)
+		  AND PROD_CD = #{prodCd} -- varchar(20)
+		  AND VLD_EDDT = #{vldEddt} -- varchar(20)
+	]]>
+ </select>
+ <select id="delBoard" parameterType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 UPDATE cs0002
+		SET
+		  ,DEL_YN = #{delYn} -- varchar(20)
+		  ,INS_CD = '111' -- varchar(20)
+		WHERE COMP_CD = #{compCd} -- varchar(20)
+		  AND PROD_CD = #{prodCd} -- varchar(20)
+		  AND VLD_EDDT = #{vldEddt} -- varchar(20)
+	]]>
+ </select>
+	
+
+</mapper> 
