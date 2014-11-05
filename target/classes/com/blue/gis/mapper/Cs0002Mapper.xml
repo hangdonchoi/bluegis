@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.blue.gis.mapper.Cs0002Mapper">
+ 
+ <select id="getBaseList" resultType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 	SELECT 
+			*
+		FROM CS0002
+	]]>
+ </select>
+ <select id="insBoard" parameterType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 	INSERT INTO cs0002(
+		   COMP_CD
+		  ,PROD_CD
+		  ,VLD_EDDT
+		  ,VLD_STDT
+		  ,PROD_NM
+		  ,PRICE
+		  ,SALE_AFT_PRICE
+		  ,SALE_YN
+		  ,DEL_YN
+		  ,INS_CD
+		  ,INS_TIME
+		) VALUES (
+		 #{compCd         }
+		,#{prodCd         }
+		,#{vldEddt        }
+		,#{vldStdt        }
+		,#{prodNm         }
+		,#{price          }
+		,#{saleAftPrice   }
+		,#{saleYn         }
+		,#{delYn          }
+		,'AAA'
+		,NULL        
+		)
+	]]>
+ </select>
+ <select id="updBoard" parameterType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 	UPDATE cs0002
+		SET
+		   COMP_CD = #{compCd} -- varchar(20)
+		  ,PROD_CD = #{prodCd} -- varchar(20)
+		  ,VLD_EDDT = #{vldEddt} -- varchar(20)
+		  ,VLD_STDT = #{vldStdt} -- varchar(11)
+		  ,PROD_NM = #{prodNm} -- varchar(11)
+		  ,PRICE = #{price} -- int(20)
+		  ,SALE_AFT_PRICE = #{saleAftPrice} -- int(20)
+		  ,SALE_YN = #{saleYn} -- varchar(20)
+		  ,DEL_YN = #{delYn} -- varchar(20)
+		  ,INS_CD = '111' -- varchar(20)
+		WHERE COMP_CD = #{compCd} -- varchar(20)
+		  AND PROD_CD = #{prodCd} -- varchar(20)
+		  AND VLD_EDDT = #{vldEddt} -- varchar(20)
+	]]>
+ </select>
+ <select id="delBoard" parameterType="com.blue.gis.vo.Cs0002VO">
+	 <![CDATA[
+	 UPDATE cs0002
+		SET
+		  ,DEL_YN = #{delYn} -- varchar(20)
+		  ,INS_CD = '111' -- varchar(20)
+		WHERE COMP_CD = #{compCd} -- varchar(20)
+		  AND PROD_CD = #{prodCd} -- varchar(20)
+		  AND VLD_EDDT = #{vldEddt} -- varchar(20)
+	]]>
+ </select>
+	
+
+</mapper> 
